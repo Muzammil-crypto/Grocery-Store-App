@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:store_app/RatingDetails.dart';
+import 'package:store_app/Reviews.dart';
+import 'package:store_app/inventory.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -7,13 +10,87 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
+      drawer: Drawer(
+
+        child: Container(
+
+          child: ListView(
+
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(color:
+                  Colors.green),
+                  accountName: Text('Mr. Mehmood '),
+                  accountEmail: Text('MehmoodKhan90@gmail.com'),
+                  currentAccountPicture: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://image.flaticon.com/icons/png/512/3135/3135768.png"),
+                  )),
+              ListTile(
+                leading: Icon(Icons.edit),
+                title: Text('Contact'),
+                subtitle: Text('Personal'),
+                trailing: Icon(Icons.arrow_forward_ios),
+                onTap: () {
+                  //
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.new_label),
+                title: Text('Products'),
+                subtitle: Text('Newest'),
+                trailing: Icon(Icons.arrow_forward_ios),
+                onTap: () {
+                  //
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.details),
+                title: Text('Account Details'),
+                subtitle: Text('Personal'),
+                trailing: Icon(Icons.arrow_forward_ios),
+                onTap: () {
+                  //
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.verified_user),
+                title: Text('About Seller'),
+                subtitle: Text('Verified'),
+                trailing: Icon(Icons.arrow_forward_ios),
+                onTap: () {
+                  //
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.location_city_outlined),
+                title: Text('Organization'),
+                subtitle: Text('Personal'),
+                trailing: Icon(Icons.arrow_forward_ios),
+                onTap: () {
+                  //
+                  Navigator.pop(context);
+                },
+              )
+            ],
+          ),
+        ),
+      ),
       appBar: AppBar(
         actions: [
           IconButton(
             alignment: Alignment.topRight,
-            onPressed: () => {},
+        onPressed: () => {
+          Navigator.push(context, new MaterialPageRoute(builder: (context)=>Reviews()))
+        },
             icon: Icon(
-              Icons.arrow_back_ios,
+              Icons.arrow_forward,
             ),
           )
         ],
@@ -37,7 +114,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.green,
         toolbarHeight: 50,
       ),
       backgroundColor: Colors.white,
@@ -47,7 +124,7 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Container(
-                color: Colors.orange,
+                color: Colors.green,
                 height: 220,
                 width: 400,
                 child: Padding(
@@ -68,7 +145,7 @@ class HomePage extends StatelessWidget {
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: AssetImage(
-                                    "assets/abc.jpg",
+                                    "assets/muz.png",
                                   ),
                                 ),
                               ),
@@ -106,7 +183,9 @@ class HomePage extends StatelessWidget {
                                           MaterialStateProperty.all<Color>(
                                               Colors.white),
                                     ),
-                                    onPressed: () {},
+                                    onPressed: ()=> {
+                                      Navigator.push(context, new MaterialPageRoute(builder: (context)=>Inventory()))
+                                    },
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Container(
@@ -152,15 +231,20 @@ class HomePage extends StatelessWidget {
                         MyArticles(
                             "https://image.flaticon.com/icons/png/512/179/179452.png",
                             "New Orders"),
+
                         MyArticles(
                             "https://image.flaticon.com/icons/png/512/1786/1786650.png",
                             "Processed "),
                         MyArticles(
                             "https://image.flaticon.com/icons/png/512/190/190411.png",
                             "Completed"),
-                        MyArticles(
-                            "https://image.flaticon.com/icons/png/512/1484/1484560.png",
-                            "Ratings"),
+                        GestureDetector(
+                          onTap: ()=>{ Navigator.push(context, new MaterialPageRoute(builder: (context)=>Reviews()))
+                          },
+                          child: MyArticles(
+                              "https://image.flaticon.com/icons/png/512/1484/1484560.png",
+                              "Ratings"),
+                        ),
                         MyArticles(
                             "https://image.flaticon.com/icons/png/512/2534/2534183.png",
                             "About Seller"),
@@ -176,19 +260,19 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 MyArticlesTwo(
-                    "https://image.flaticon.com/icons/png/512/179/179452.png",
+                    "https://image.flaticon.com/icons/png/512/3168/3168626.png",
                     "Beautiful Double Bed",
                     "Wood Made"),
                 MyArticlesTwo(
-                    "https://image.flaticon.com/icons/png/512/179/179452.png",
+                    "https://image.flaticon.com/icons/png/512/2355/2355402.png",
                     "Glass Table",
                     "Imported Piece"),
                 MyArticlesTwo(
-                    "https://image.flaticon.com/icons/png/512/179/179452.png",
+                    "https://image.flaticon.com/icons/png/512/2271/2271494.png",
                     "Chair",
                     "With Discount"),
                 MyArticlesTwo(
-                    "https://image.flaticon.com/icons/png/512/179/179452.png",
+                    "https://image.flaticon.com/icons/png/512/595/595798.png",
                     "Sofa with one Table",
                     "With Discount"),
               ]),
@@ -210,11 +294,14 @@ class HomePage extends StatelessWidget {
               top: 10.0,
             ),
             child: IconButton(
-              icon: CircleAvatar(
-                radius: 30.0,
-                backgroundImage: NetworkImage(url),
+              icon: GestureDetector(
+
+                child: CircleAvatar(
+                  radius: 30.0,
+                  backgroundImage: NetworkImage(url),
+                ),
               ),
-              onPressed: () => {},
+              onPressed: () =>{},
             ),
           ),
           Padding(
@@ -232,7 +319,7 @@ class HomePage extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 8, right: 8),
         child: Card(
-          color: Colors.orange,
+          color: Colors.green,
           shape: StadiumBorder(),
           child: ListTile(
             leading: Image.network(

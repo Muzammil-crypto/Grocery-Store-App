@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/Reviews.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
@@ -7,20 +8,25 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: [
-        Container(
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(25),
+        Padding(
+          padding: const EdgeInsets.only(right: 310.0),
+          child: Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(25),
+              ),
+              color: Colors.white,
             ),
-            color: Colors.white,
-          ),
-          child: IconButton(
-            onPressed: () => {},
-            icon: Icon(Icons.arrow_back),
+            child: IconButton(
+    onPressed: () => {
+    Navigator.push(context, new MaterialPageRoute(builder: (context)=>Reviews()))
+    },
+              icon: Icon(Icons.arrow_back),
+            ),
           ),
         ),
         SizedBox(

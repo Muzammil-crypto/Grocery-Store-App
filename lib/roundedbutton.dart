@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/Reviews.dart';
 
 class RoundedButton extends StatelessWidget {
   const RoundedButton({
@@ -22,11 +23,15 @@ class RoundedButton extends StatelessWidget {
           ),
           color: bgColor,
         ),
-        child: IconButton(
-            onPressed: () => {},
-            icon: Icon(
-              Icons.arrow_back,
-              color: iconColor,
-            )));
+        child: Container(
+          child: IconButton(
+            onPressed: () => {
+              Navigator.push(context, new MaterialPageRoute(builder: (context)=>Reviews()))
+            },
+              icon: Icon(
+                Icons.arrow_back,
+                color: iconColor,
+              )),
+        ));
   }
 }

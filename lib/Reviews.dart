@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
+import 'package:store_app/RatingDetails.dart';
+import 'package:store_app/homepage.dart';
 
 class Reviews extends StatelessWidget {
   const Reviews({Key? key}) : super(key: key);
@@ -6,31 +9,43 @@ class Reviews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.green,
         shadowColor: Colors.black,
         actions: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(right: 340.0),
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_back_ios_new,
-                color: Colors.white,
+            padding: const EdgeInsets.only(right:310.0),
+            child: Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(25),
               ),
-              onPressed: () {
-                // do something
-              },
+              color: Colors.white,
             ),
-          )
+            child: Container(
+              child: IconButton(
+                  onPressed: () => {
+                    Navigator.push(context, new MaterialPageRoute(builder: (context)=>HomePage()))
+                  },
+                  icon: Icon(Icons.arrow_back,
+                    color: Colors.black,
+                  )),
+            )),
+          ),
         ],
       ),
-      body: ListView(scrollDirection: Axis.vertical, children: [
+      body: ListView(
+
+           children: [
         Column(
           children: [
             Container(
               height: 250.0,
               decoration: new BoxDecoration(
-                color: Colors.orange,
+                color: Colors.green,
                 borderRadius: new BorderRadius.vertical(
                     bottom: new Radius.elliptical(
                         MediaQuery.of(context).size.width, 60.0)),
@@ -44,7 +59,7 @@ class Reviews extends StatelessWidget {
                   child: Icon(Icons.star),
                 ),
                 Card(
-                  color: Colors.orange,
+                  color: Colors.green,
                   shape: StadiumBorder(),
                   child: Container(
                     width: 300,
@@ -69,43 +84,86 @@ class Reviews extends StatelessWidget {
           padding: const EdgeInsets.only(top: 10),
           child: Container(
             height: 500,
-            child: Expanded(
+
               child: ListView(
-                scrollDirection: Axis.vertical,
+              //  scrollDirection: Axis.vertical,
                 children: [
-                  MyArticlesthree(
-                      "https://image.flaticon.com/icons/png/512/2534/2534183.png",
-                      "heading",
-                      "subheading"),
-                  MyArticlesthree(
-                      "https://image.flaticon.com/icons/png/512/2534/2534183.png",
-                      "heading",
-                      "subheading"),
-                  MyArticlesthree(
-                      "https://image.flaticon.com/icons/png/512/2534/2534183.png",
-                      "heading",
-                      "subheading"),
-                  MyArticlesthree(
-                      "https://image.flaticon.com/icons/png/512/2534/2534183.png",
-                      "heading",
-                      "subheading"),
-                  MyArticlesthree(
-                      "https://image.flaticon.com/icons/png/512/2534/2534183.png",
-                      "heading",
-                      "subheading"),
-                  MyArticlesthree(
-                      "https://image.flaticon.com/icons/png/512/2534/2534183.png",
-                      "heading",
-                      "subheading"),
-                  MyArticlesthree(
-                      "https://image.flaticon.com/icons/png/512/2534/2534183.png",
-                      "heading",
-                      "subheading"),
+                  GestureDetector(
+                    onTap: ()=>{Navigator.push(context, new MaterialPageRoute(builder: (context)=>RatingProfiles()))
+                    },
+                    child: MyArticlesthree(
+                        "https://image.flaticon.com/icons/png/512/2534/2534183.png",
+                        "Noah ",
+                        "Regular Customer"),
+                  ),
+
+                  GestureDetector(
+                      onTap: ()=>{Navigator.push(context, new MaterialPageRoute(builder: (context)=>RatingProfiles()))},
+                    child: MyArticlesthree(
+
+                        "https://image.flaticon.com/icons/png/512/2534/2534183.png",
+                        "Jack M.",
+                        "New Customer"),
+                  ),
+                  GestureDetector( onTap: ()=>
+                  {
+                    Navigator.push(context, new MaterialPageRoute(
+                        builder: (context) => RatingProfiles()))
+                  },
+                  child: MyArticlesthree(
+                        "https://image.flaticon.com/icons/png/512/2534/2534183.png",
+                        "Johnson",
+                        "New Customer"),
+                  ),
+                  GestureDetector(
+                      onTap: ()=>
+                      {
+                        Navigator.push(context, new MaterialPageRoute(
+                            builder: (context) => RatingProfiles()))
+                      },
+                      child: MyArticlesthree(
+                        "https://image.flaticon.com/icons/png/512/2534/2534183.png",
+                        "Amer",
+                        "Regular Customer"),
+                  ),
+                  GestureDetector(
+                      onTap: ()=>
+                      {
+                        Navigator.push(context, new MaterialPageRoute(
+                            builder: (context) => RatingProfiles()))
+                      },
+                      child: MyArticlesthree(
+                        "https://image.flaticon.com/icons/png/512/2534/2534183.png",
+                        "Babar azam",
+                        "Regular Customer"),
+                  ),
+                  GestureDetector(
+                      onTap: ()=>
+                      {
+                        Navigator.push(context, new MaterialPageRoute(
+                            builder: (context) => RatingProfiles()))
+                      },
+                      child: MyArticlesthree(
+                        "https://image.flaticon.com/icons/png/512/2534/2534183.png",
+                        "Zahid",
+                        "New Customer"),
+                  ),
+                  GestureDetector(
+                      onTap: ()=>
+                      {
+                        Navigator.push(context, new MaterialPageRoute(
+                            builder: (context) => RatingProfiles()))
+                      },
+                      child: MyArticlesthree(
+                        "https://image.flaticon.com/icons/png/512/2534/2534183.png",
+                        "Umar",
+                        "Regular Customer"),
+                  ),
                 ],
               ),
             ),
           ),
-        ),
+
       ]),
     );
   }
@@ -117,7 +175,7 @@ Container MyArticlesthree(String url, String heading, String subheading) {
     child: Padding(
       padding: const EdgeInsets.only(left: 8, right: 8),
       child: Card(
-        shape: StadiumBorder(),
+        // shape: StadiumBorder(),
         child: ListTile(
           leading: Image.network(
             url,
@@ -126,21 +184,41 @@ Container MyArticlesthree(String url, String heading, String subheading) {
             heading,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
           ),
-          subtitle: Text(
-            subheading,
-            style: TextStyle(fontWeight: FontWeight.w500),
-          ),
-          trailing: Padding(
-            padding: const EdgeInsets.only(right: 10, top: 0),
-            child: IconButton(
-              icon: Icon(
-                Icons.menu,
-                color: Colors.blueGrey,
-              ),
-              onPressed: () => {},
+
+          subtitle: Padding(
+            padding: const EdgeInsets.only(top: 4.0, right: 3),
+            child: SmoothStarRating(
+              allowHalfRating: false,
+              onRated: (v) {},
+              starCount: 5,
+              size: 20,
+              isReadOnly: true,
+              // spacing: 5,
+              color: Colors.black,
             ),
           ),
+
+          trailing: Padding(
+            padding: const EdgeInsets.only(right: 5, top: 0),
+            child: Column(
+
+              children:[ IconButton(
+                icon: Row(
+                  children:[ Padding(
+                    padding: const EdgeInsets.only(right: 0.0),
+                    child: Center(
+                      child: Icon(Icons.arrow_forward_ios),
+                    ),
+                  ),]
+                ),
+                onPressed: () => {},
+              ),]
+            ),
+
+          ),
+
         ),
+
       ),
     ),
   );

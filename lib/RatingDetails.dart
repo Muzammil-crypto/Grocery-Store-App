@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
-
+import 'package:store_app/Video.dart';
 import 'package:store_app/appHeader.dart';
-import 'package:store_app/custon_app_bar.dart';
+
+import 'custon_app_bar.dart';
 
 class RatingProfiles extends StatelessWidget {
+
   const RatingProfiles({Key? key}) : super(key: key);
 
   @override
@@ -13,7 +15,10 @@ class RatingProfiles extends StatelessWidget {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            AppHeader(),
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0, left: 8),
+              child: AppHeader(),
+            ),
             Positioned(
               top: -380,
               left: -187,
@@ -29,7 +34,7 @@ class RatingProfiles extends StatelessWidget {
                 children: [
                   CustomAppBar(),
                   SizedBox(
-                    height: 10,
+                    height: 38,
                   ),
                   Container(
                     height: 80,
@@ -49,11 +54,11 @@ class RatingProfiles extends StatelessWidget {
                   ),
                   Text(
                     "Jack Johnson",
-                    style: TextStyle(color: Colors.black, fontSize: 24),
+                    style: TextStyle(color: Colors.black, fontSize: 24,fontStyle: FontStyle.italic),
                   ),
                   Text(
                     "Customer",
-                    style: TextStyle(color: Colors.black, fontSize: 15),
+                    style: TextStyle(color: Colors.black, fontSize: 15,fontStyle: FontStyle.italic),
                   ),
                   SizedBox(
                     height: 15,
@@ -87,10 +92,20 @@ class RatingProfiles extends StatelessWidget {
                     allowHalfRating: false,
                     onRated: (v) {},
                     starCount: 5,
-                    size: 40,
+                    size: 45,
                     isReadOnly: false,
                     spacing: 5,
-                    color: Colors.black,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+
+                  Container(
+                    height: 400,
+                    width: 400,
+                    color: Colors.green,
+                    child: MyVideo(),
+
                   ),
                 ],
               ),
