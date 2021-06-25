@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_app/RatingDetails.dart';
-import 'package:store_app/drawer.dart';
-import 'package:store_app/homepage.dart';
-
-import 'inventory.dart';
+import 'package:store_app/screens/homepage.dart';
 
 void main() {
   runApp(MyApp());

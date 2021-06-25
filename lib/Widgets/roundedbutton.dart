@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_app/Reviews.dart';
+import 'package:store_app/screens/Reviews.dart';
 
 class RoundedButton extends StatelessWidget {
   const RoundedButton({
